@@ -1,0 +1,10 @@
+event_cause,base_n,op_median_min,conf_p90_min,test_coverage,status,dispatch_buffer_min
+construction,28,296,1420,1.0,review,296
+tree_fall,55,91,1140,0.955,review,91
+water_logging,48,113,1066,0.917,review,113
+pot_holes,14,36,1010,0.583,review,36
+road_conditions,17,246,918,0.571,review,246
+others,121,75,551,0.839,review,75
+vehicle_breakdown,943,41,113,0.925,calibrated,113
+congestion,10,72,97,0.571,calibrated,97
+accident,45,40,89,0.87,calibrated,89

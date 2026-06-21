@@ -1,0 +1,5 @@
+event_cause,severity_tier,closure_risk,expected_clearance_min,recommended_personnel,barricade,diversion,review_flag,location
+tree_fall,High,0.394,90,3,True,True,True,"Bellary Road, near Mekhri Circle"
+vehicle_breakdown,Low,0.043,41,1,False,False,False,"Hosur Road, Silk Board"
+accident,Low,0.03,40,1,False,False,False,Old Madras Road flyover
+vip_movement,High,0.8,46,4,True,True,False,Vidhana Soudha approach

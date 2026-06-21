@@ -1,0 +1,16 @@
+event_cause,n_dur,n_full,reliability,median_min,p90_min,stale_removed,dur_source,closure_rate,closure_lo95,closure_hi95
+construction,51,480,reliable,295.6,461.2,6,own,0.265,0.227,0.306
+road_conditions,31,170,reliable,245.9,1107.1,0,own,0.124,0.082,0.181
+water_logging,100,458,reliable,112.7,245.8,20,own,0.085,0.063,0.114
+tree_fall,103,284,reliable,90.5,339.8,17,own,0.394,0.339,0.452
+others,234,638,reliable,75.2,203.0,31,own,0.086,0.067,0.111
+congestion,22,136,directional,71.5,135.0,0,own,0.044,0.02,0.093
+fog / low visibility,0,2,sparse,45.7,109.5,0,pooled,0.0,0.0,0.658
+vip_movement,0,20,sparse,45.7,109.5,0,pooled,0.8,0.584,0.919
+public_event,0,84,sparse,45.7,109.5,0,pooled,0.464,0.362,0.57
+debris,0,13,sparse,45.7,109.5,0,pooled,0.154,0.043,0.422
+protest,2,15,sparse,45.7,109.5,0,pooled,0.4,0.198,0.643
+vehicle_breakdown,1783,4896,reliable,40.7,104.1,19,own,0.043,0.038,0.049
+accident,87,365,reliable,40.0,77.2,4,own,0.03,0.017,0.053
+procession,13,72,directional,36.5,117.3,0,own,0.264,0.176,0.376
+pot_holes,32,537,reliable,36.4,190.0,7,own,0.024,0.014,0.041

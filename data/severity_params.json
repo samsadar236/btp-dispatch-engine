@@ -1,0 +1,10 @@
+{
+  "weights": {
+    "duration": 0.5,
+    "closure": 0.5
+  },
+  "dur_clip_lo": 36.4,
+  "dur_clip_hi": 295.6,
+  "tier_cut_60": 0.0298,
+  "tier_cut_85": 0.1897
+}

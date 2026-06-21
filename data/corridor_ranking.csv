@@ -1,0 +1,20 @@
+corridor,n,outliers,rate,lo95,hi95,distinguishable
+CBD 2,26,2,0.077,0.021,0.241,False
+ORR West 1,62,4,0.065,0.025,0.154,False
+Hosur Road,94,6,0.064,0.03,0.132,False
+Bellary Road 1,194,10,0.052,0.028,0.092,False
+Tumkur Road,206,9,0.044,0.023,0.081,False
+Bellary Road 2,115,5,0.043,0.019,0.098,False
+Non-corridor,880,38,0.043,0.032,0.059,False
+ORR North 1,72,3,0.042,0.014,0.115,False
+ORR East 1,73,3,0.041,0.014,0.114,False
+Varthur Road,25,1,0.04,0.007,0.195,False
+Old Airport Road,31,1,0.032,0.006,0.162,False
+ORR East 2,31,1,0.032,0.006,0.162,False
+ORR North 2,64,2,0.031,0.009,0.107,False
+Mysore Road,289,8,0.028,0.014,0.054,False
+Magadi Road,93,2,0.022,0.006,0.075,False
+Old Madras Road,64,1,0.016,0.003,0.083,False
+Bannerghata Road,37,0,0.0,0.0,0.094,False
+Hennur Main Road,21,0,0.0,0.0,0.155,False
+West of Chord Road,42,0,0.0,0.0,0.084,False
