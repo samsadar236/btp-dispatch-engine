@@ -1,4 +1,4 @@
-
+<img width="401" height="250" alt="image" src="https://github.com/user-attachments/assets/34896095-026b-4a69-b6e2-1e238194b0fe" />
 # 🚦 Event-Impact & Resource Recommendation Engine
 
 ### Bengaluru Traffic Police — Flipkart GRiD Round 2
@@ -218,7 +218,7 @@ You can:
 
 The dashboard consumes the same engine used by the standalone agents.
 
-#### 📡 News Watch Agent
+#### News Watch Agent
 
 Pre-scores upcoming events from historical analogues and generates deployment recommendations before the event occurs.
 
@@ -226,7 +226,7 @@ Pre-scores upcoming events from historical analogues and generates deployment re
 python agents/news_agent.py
 ```
 
-#### 🚨 Alert Agent
+#### Alert Agent
 
 Scores a live incident through the calibrated closure model and emits an officer-facing dispatch recommendation.
 
@@ -280,17 +280,17 @@ to confirm the reproduced results.
 
 ---
 
-## The two AI agents — what they do, and how they work
+## 🤖 The AI Agents — What They Do, and How They Work
 
 The system ships two agents that share the same core engine but serve different time horizons.
 
-### News Watch agent (`agents/news_agent.py`) — the forward-looking one
+### 📡 News Watch Agent (`agents/news_agent.py`)
 
 **Job:** estimate an event’s impact before it happens.
 
 This agent handles the pre-event case, where exact location, assigned officer, and observed duration are not yet available. It uses a type-level historical analogue: it maps a detected event to its nearest event-cause in the data, then uses that event type’s median clearance time, closure rate, severity tier, and conformal P90 from the reference table. The output is a pre-deployment plan with severity, expected closure probability, clearance estimate, and recommended officers, barricading, and diversion level.
 
-### Alert agent (`agents/alert_agent.py`) — the real-time one
+### 🚨 Alert Agent (`agents/alert_agent.py`)
 
 **Job:** score a live incident immediately and emit an officer-facing alert.
 
