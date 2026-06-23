@@ -17,21 +17,22 @@ This project is a decision-support engine for Bengaluru Traffic Police that:
 - Learns from every completed event through a post-event review loop
 
 Built end-to-end on the ASTraM incident log.
+---
 
-### 🌐 Live Demo
+## Live Demo
 
 Experience the complete system through the deployed Streamlit dashboard, including event forecasting, dispatch recommendations, map visualization, and the Live Ops command center.
 
 **Link:** [Open Live Demo](https://btp-dispatch-engine-sam.streamlit.app/)
 ---
-### 🎥 Demo Video
+## Demo Video
 
 A walkthrough of the system architecture, forecasting pipeline, AI agents, dispatch engine, dashboard features, and key results.
 
 **Link:** [Watch Demo Video](YOUR_VIDEO_URL)
 
 ---
-### 📄 Technical Report
+## Technical Report
 
 A detailed explanation of the methodology, data preparation, model development, calibration strategy, dispatch logic, evaluation methodology, and design decisions behind the system.
 
