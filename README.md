@@ -12,6 +12,72 @@ This targets event-driven congestion exactly as scoped by the brief — by forec
 *Built by **Lock IN** — Samruddhi Sadar, Indian Institute of Technology Guwahati.*
 
 ---
+# 🚦 Event-Impact & Resource Recommendation Engine
+
+### Bengaluru Traffic Police — Flipkart GRiD Round 2
+
+> **Problem Statement**
+>
+> How can historical and real-time data be used to forecast event-related traffic impact and recommend optimal manpower, barricading, and diversion plans?
+
+---
+
+## What this system does
+
+This project is a decision-support engine for Bengaluru Traffic Police that:
+
+- Forecasts the operational impact of planned and live events
+- Predicts road-closure likelihood and expected clearance time
+- Recommends officers, barricades, diversions, and hold duration
+- Learns from every completed event through a post-event review loop
+
+Built end-to-end on the ASTraM incident log.
+
+---
+
+## Why impact instead of "congestion"?
+
+The ASTraM dataset contains incident records (event type, location, duration, closure status) but does **not** contain traffic flow, speed, or volume measurements.
+
+Because of that, claims such as:
+
+> "Congestion will increase by 20%"
+
+cannot be supported by the available data.
+
+Instead, the system forecasts the operational signals that the dataset genuinely contains:
+
+- Clearance time
+- Road-closure probability
+- Event severity
+
+These are the same signals required to recommend manpower, barricading, and diversion plans.
+
+---
+
+## Example output
+
+Instead of showing operators a probability score, the system produces an actionable recommendation:
+
+```text
+🔴 URGENT
+Deploy: 3 officers
+Barricade: YES
+Diversion: Recommended
+Expected hold time: ~1.5 hours
+```
+
+At the selected barricade operating point:
+
+- Only ~8% of events trigger deployment
+- ~50% of all actual road closures are identified before they occur
+- Precision is ~52%
+
+VIP movements automatically trigger barricade recommendations because their historical closure rate (~80%) exceeds the deployment threshold.
+
+---
+
+*Built by **Lock IN** — Samruddhi Sadar, IIT Guwahati*
 
 ## How this answers the problem statement
 
