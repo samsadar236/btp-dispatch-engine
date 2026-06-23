@@ -172,37 +172,27 @@ python verify_accuracy.py
 
 ---
 
-## 🤖 The two AI agents — what they do, and how they run without API keys
+## The two AI agents — what they do, and how they work
 
-The system ships **two agents** that share the same engine but serve different time horizons.
+The system ships two agents that share the same core engine but serve different time horizons.
 
-### 📡 News Watch agent (`agents/news_agent.py`) — the *forward-looking* one
+### News Watch agent (`agents/news_agent.py`) — the forward-looking one
 
-**Job:** quantify an event's impact *before it happens*. This is the direct answer to *"event impact is not quantified in advance."*
+**Job:** estimate an event’s impact before it happens.
 
-A future event has no exact location, no assigned officer, no recorded duration — none of the per-event features F4 needs. So pre-scoring honestly uses the **type-level historical analogue**: it maps a detected event ("farmers' rally") to its nearest event-cause in the data (`protest`), then pulls that type's median clearance, closure rate, severity tier, and conformal P90 from the reference table, and runs them through the exact same `dispatch_for_row()` rules the live engine uses. The output is a pre-deployment plan: severity, expected closure %, clearance estimate, and recommended officers / barricade / diversion.
+This agent handles the pre-event case, where exact location, assigned officer, and observed duration are not yet available. It uses a type-level historical analogue: it maps a detected event to its nearest event-cause in the data, then uses that event type’s median clearance time, closure rate, severity tier, and conformal P90 from the reference table. The output is a pre-deployment plan with severity, expected closure probability, clearance estimate, and recommended officers, barricading, and diversion level.
 
-### 🚨 Alert agent (`agents/alert_agent.py`) — the *real-time* one
+### Alert agent (`agents/alert_agent.py`) — the real-time one
 
-**Job:** when an incident is reported live, score it immediately and emit an officer-facing alert. This is the *"real-time data"* half of the brief.
+**Job:** score a live incident immediately and emit an officer-facing alert.
 
-A live incident **does** have features (cause, vehicle type, police station, corridor, time), so it uses **F4's calibrated per-event probability** with the conservative floor `deployment_risk = max(F4, type_rate)` — the same floor F6 uses, so a rare-but-dangerous type like VIP movement can't be under-protected by a noisy per-event estimate. It then runs F5/F6 for the full dispatch, formats an alert, and **logs the incident to `review_log.csv`** — which is exactly what F7 consumes. That's the learning loop closing.
+This agent handles the live case, where the report already includes usable features such as cause, vehicle type, police station, corridor, and time. It uses the calibrated per-event closure model, applies the conservative deployment floor, and generates the final dispatch recommendation. It then formats the alert and logs the incident to `review_log.csv` for the learning loop.
 
-It deliberately does **not** auto-dispatch or pick a "nearest unit" — that requires live fleet GPS the log doesn't contain. It is decision-support, and says so.
+### Core pipeline vs deployment hooks
 
-### How they work with no API keys — the honest explanation
+The core scoring logic runs locally and does not require API keys. Any live feed ingestion or LLM-based parsing is treated as an optional deployment-time integration, not a dependency of the model itself.
 
-Each agent has **two layers**, and only one of them needs the internet:
-
-**The spine (ships working, no keys, no network).** Mapping an event type to its analogue → pulling the historical stats → scoring through the engine → producing the recommendation. This is pure computation over the local artifacts. It runs today, exactly as it would in production, and that's what you see when you run the scripts or use the Live Ops tab.
-
-**The two outward-facing interfaces (defined, stubbed, wired at deploy).** In `news_agent.py` these are explicitly:
-- `fetch_notices()` — at deploy, scrape one reliable feed (the BTP traffic-advisory portal or a single RSS feed) for raw event text.
-- `extract_event_from_text()` — at deploy, call an LLM (Claude) with a structured prompt to turn that messy text into a clean record: `{event_name, location, event_type, start_time, confidence}`.
-
-Both are written as clearly-labeled `NotImplementedError` interfaces with the exact deploy instructions in their docstrings. The key design decision: **the LLM's only job is messy-text → structured-record.** Once you have a structured event, the spine takes over — and the spine is fully tested here by feeding it the same structured records the LLM *would* produce. So "no API key" doesn't mean "fake"; it means the part that needs a key (reading the public internet) is cleanly separated from the part that does the actual scoring (which needs no key and is proven to work).
-
-This is honest engineering: we don't claim a live news scraper we can't run offline. We claim — and demonstrate — the decision logic that consumes such a feed, with the feed itself as a one-function swap.
+This is intentional: the project demonstrates the decision logic and scoring pipeline end to end, while keeping external integrations separable and easy to swap in later.
 
 ---
 
