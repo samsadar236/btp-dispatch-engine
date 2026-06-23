@@ -22,26 +22,6 @@ Built end-to-end on the ASTraM incident log.
 
 ---
 
-## Why impact instead of "congestion"?
-
-The ASTraM dataset contains incident records (event type, location, duration, closure status) but does **not** contain traffic flow, speed, or volume measurements.
-
-Because of that, claims such as:
-
-> "Congestion will increase by 20%"
-
-cannot be supported by the available data.
-
-Instead, the system forecasts the operational signals that the dataset genuinely contains:
-
-- Clearance time
-- Road-closure probability
-- Event severity
-
-These are the same signals required to recommend manpower, barricading, and diversion plans.
-
----
-
 
 *Built by **Lock IN** — Samruddhi Sadar, IIT Guwahati*
 
