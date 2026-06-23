@@ -317,14 +317,20 @@ python engine/step0_clean.py && python engine/f2_reference_table.py && python en
 The raw ASTraM CSV ships in `data/`, so this regenerates every artifact from scratch. Then `python verify_accuracy.py` confirms the numbers.
 
 ---
+## 🧾Modeling Decisions & Limitations
 
-## 🧾 Honesty ledger
+- **Impact over congestion.** The ASTraM log does not contain traffic flow, speed, or volume measurements. The system therefore forecasts clearance time, closure probability, and severity rather than inventing unsupported congestion estimates.
 
-- **Engages "congestion" through impact, not a fabricated number.** The log has no flow data to forecast congestion directly; clearance time, closure probability, and severity are what it actually supports — and that's what the brief's Problem Statement Direction asks for.
-- **Timezone artifact** correctly diagnosed (IST mislabeled as UTC), not silently "fixed".
-- **Rescue predicate is exact** (`status==closed` with null `closed_datetime`), not a blanket bot-row reject.
-- **One model dropped on principle** — the GBM lost to a median, so the median shipped.
-- **Long-tail types** (e.g. `pot_holes`) flagged as ticket-lifecycle artifacts and routed to review, never treated as real clearance.
-- **Corridor effects** presented as directional hypotheses — none yet statistically distinguishable from the global rate.
-- **Agents are honest about scope** — no auto-dispatch, no "nearest unit" (needs live fleet GPS); the news scraper is a labeled deploy-time interface, not a fake.
-- **Every metric is re-checkable** — `verify_accuracy.py` recomputes them live.
+- **Timezone anomaly documented.** An IST-as-UTC timestamp artifact was identified during data cleaning and is explicitly documented rather than silently corrected.
+
+- **Precise rescue-event handling.** Records are excluded only when `status == closed` and `closed_datetime` is missing, avoiding blanket rejection of entire groups of rows.
+
+- **Evidence-based model selection.** A gradient-boosted duration model was developed and evaluated but did not outperform a transparent median-based baseline. The simpler model was therefore retained.
+
+- **Long-tail event types handled conservatively.** Rare categories (e.g., `pot_holes`) are treated as review candidates rather than trusted duration estimates due to strong ticket-lifecycle effects.
+
+- **Corridor analysis presented as exploratory.** Corridor-level differences are reported as directional signals, not statistically significant findings.
+
+- **Deployment assumptions are explicit.** The system does not perform automatic dispatching or nearest-unit assignment, as those capabilities require live fleet telemetry not present in the dataset.
+
+- **All reported metrics are reproducible.** Running `verify_accuracy.py` recomputes the evaluation metrics directly from the generated artifacts.
