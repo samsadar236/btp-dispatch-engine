@@ -5,7 +5,11 @@
 
 A decision-support system that **forecasts the operational impact** of a traffic event (planned or unplanned), **recommends concrete resources** (officers, barricades, diversions), and **learns from every event** afterward — built end-to-end on the ASTraM incident log.
 
-It is deliberately **not** a congestion predictor. The source log records *incidents*, not *traffic flow* — so claiming to forecast congestion would be inventing a signal that isn't in the data. Instead it forecasts exactly the three things the data genuinely supports — **clearance time, road-closure probability, and severity** — each with uncertainty that is *measured and proven*, not asserted.
+This targets event-driven congestion exactly as scoped by the brief — by forecasting the **impact that drives it**: clearance time, road-closure probability, and severity. The ASTraM log is an incident record (event type, location, duration, closure flag) with no traffic volume, speed, or flow data in it, so a number like "congestion will rise 20%" can't be backed by anything in the dataset — it would be invented. What the data *can* support, and what this system forecasts with proven uncertainty, is exactly what the brief's own Problem Statement Direction asks for: *"forecast event-related traffic impact and recommend optimal manpower, barricading, and diversion plans."*
+
+> **What this means for a dispatcher.** At the barricade operating point, the engine pre-positions units for **8% of events** and catches **~50% of all actual road closures** before the road is shut (at ~52% precision). A **VIP movement anywhere in Bengaluru auto-triggers a barricade recommendation** — its 80% historical closure rate sets a floor the per-event model can never override. The operator never reads a probability; they read an order: *"🔴 URGENT — Deploy 3 officers, erect barricade, hold ~1.5h."*
+
+*Built by **Lock IN** — Samruddhi Sadar, Indian Institute of Technology Guwahati.*
 
 ---
 
@@ -249,7 +253,7 @@ The raw ASTraM CSV ships in `data/`, so this regenerates every artifact from scr
 
 ## 🧾 Honesty ledger
 
-- **Not a congestion model.** The log has no flow data; we forecast impact (clearance, closure, severity), which it *does* support.
+- **Engages "congestion" through impact, not a fabricated number.** The log has no flow data to forecast congestion directly; clearance time, closure probability, and severity are what it actually supports — and that's what the brief's Problem Statement Direction asks for.
 - **Timezone artifact** correctly diagnosed (IST mislabeled as UTC), not silently "fixed".
 - **Rescue predicate is exact** (`status==closed` with null `closed_datetime`), not a blanket bot-row reject.
 - **One model dropped on principle** — the GBM lost to a median, so the median shipped.

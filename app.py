@@ -175,6 +175,11 @@ with tabs[0]:
     c[1].metric("Closure model AUC", "0.79", help="vs 0.74 type-lookup baseline")
     c[2].metric("P90 buffer coverage", "90.2%", help="conformal, proven out-of-sample")
     c[3].metric("Outlier rate", "3.9%", help="events past their peer-cohort fence")
+    st.success("**What this means operationally:** at the barricade operating point, the engine "
+               "pre-positions units for **8% of events** and catches **~50% of all actual road closures** "
+               "before the road is shut (at ~52% precision). A **VIP movement anywhere in Bengaluru "
+               "auto-triggers a barricade recommendation** \u2014 its 80% historical closure rate sets a "
+               "floor the per-event model cannot override.")
     st.markdown("---")
     a, b = st.columns(2)
     a.markdown("#### What it solves\n"
@@ -315,14 +320,23 @@ with tabs[2]:
         m[1].metric("Closure risk", f"{d['closure']:.0%}", help=f"F4 {d['f4']:.0%} / type {d['type_rate']:.0%}")
         m[2].metric("Expected clearance", f"{d['median']:.0f} min")
         m[3].metric("Resource hold", f"~{d['hold_min']/60:.1f} h")
-        acts = [f"**{d['personnel']} officer(s)**"]
+        # ---- action-oriented dispatch order (instruction, not statistic) ----
+        order = [f"Deploy **{d['personnel']} officer(s)** to site"]
         if d["barricade"]:
-            acts.append("Barricade")
+            order.append("**erect barricade**")
         if d["diversion"]:
-            acts.append("Diversion")
-        st.success("Dispatch: " + "  \u2022  ".join(acts))
+            order.append("**activate diversion** on alternate route")
+        order.append(f"hold resources ~{d['hold_min']/60:.1f}h")
+        badge = {"High": "\U0001F534 URGENT", "Medium": "\U0001F7E0 PRIORITY", "Low": "\U0001F7E2 ROUTINE"}.get(d["tier"], "")
+        line = f"### {badge} \u2014 DEPLOY NOW\n" + " &middot; ".join(order) + "."
+        if d["tier"] == "High":
+            st.error(line)
+        elif d["tier"] == "Medium":
+            st.warning(line)
+        else:
+            st.success(line)
         for n in d["notes"]:
-            st.warning(n)
+            st.caption("\u26a0 " + n)
 
 # ---- Reference Table ----
 with tabs[3]:
