@@ -52,6 +52,7 @@ The brief names three gaps. Here is where each is solved:
 3. **Simplicity won.** A gradient-boosted clearance model was built, tested, and rejected because it underperformed a transparent per-type median baseline (MedAE 31.4 vs 29.0 minutes). The simpler model shipped, and the discarded model remains in the repository as evidence.
 
 ## ⭐ Architecture 
+The system is organized as a star schema centered on a single dispatch decision, with timing, closure, severity, and learning modules acting as independent evidence sources.
 
 ![Architecture diagram](architecture.svg)
 
