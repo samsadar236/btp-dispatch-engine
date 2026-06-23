@@ -338,5 +338,5 @@ The raw ASTraM CSV ships in `data/`, so this regenerates every artifact from scr
 - **All reported metrics are reproducible.** Running `verify_accuracy.py` recomputes the evaluation metrics directly from the generated artifacts.
 
 ---
-*Built by **Lock IN** — Samruddhi Sadar, IIT Guwahati*
+### Built by Samruddhi Sadar, IIT Guwahati
 ---
