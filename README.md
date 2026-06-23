@@ -17,24 +17,17 @@ This project is a decision-support engine for Bengaluru Traffic Police that:
 - Learns from every completed event through a post-event review loop
 ---
 
-## Live Demo
+## 🚀 Explore the Project
 
-Experience the complete system through the deployed Streamlit dashboard, including event forecasting, dispatch recommendations, map visualization, and the Live Ops command center.
+| Resource | Description |
+|-----------|-------------|
+| Live Demo | Interactive dashboard with forecasting, dispatch recommendations, map visualization, and learning workflows. |
+| Demo Video | End-to-end walkthrough of the system, architecture, and key features. |
+| Technical Report | Detailed methodology, modeling decisions, evaluation results, and implementation details. |
 
-**Link:** [Open Live Demo](https://btp-dispatch-engine-sam.streamlit.app/)
-
-## Demo Video
-
-A walkthrough of the system architecture, forecasting pipeline, AI agents, dispatch engine, dashboard features, and key results.
-
-**Link:** [Watch Demo Video](YOUR_VIDEO_URL)
-
-
-## Technical Report
-
-A detailed explanation of the methodology, data preparation, model development, calibration strategy, dispatch logic, evaluation methodology, and design decisions behind the system.
-
-**Link:** [Read Technical Report](YOUR_REPORT_LINK)
+- **Live Demo:** https://btp-dispatch-engine-sam.streamlit.app/
+- **Demo Video:** YOUR_VIDEO_URL
+- **Technical Report:** YOUR_REPORT_LINK
 ---
 ## How this answers the problem statement
 
