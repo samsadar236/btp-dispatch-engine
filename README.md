@@ -253,13 +253,13 @@ No metrics are hard-coded into the dashboard or README.
 
 The system ships two agents that share the same core engine but serve different time horizons.
 
-### 📡 News Watch Agent (`agents/news_agent.py`)
+### News Watch Agent (`agents/news_agent.py`)
 
 **Job:** estimate an event’s impact before it happens.
 
 This agent handles the pre-event case, where exact location, assigned officer, and observed duration are not yet available. It uses a type-level historical analogue: it maps a detected event to its nearest event-cause in the data, then uses that event type’s median clearance time, closure rate, severity tier, and conformal P90 from the reference table. The output is a pre-deployment plan with severity, expected closure probability, clearance estimate, and recommended officers, barricading, and diversion level.
 
-### 🚨 Alert Agent (`agents/alert_agent.py`)
+### Alert Agent (`agents/alert_agent.py`)
 
 **Job:** score a live incident immediately and emit an officer-facing alert.
 
