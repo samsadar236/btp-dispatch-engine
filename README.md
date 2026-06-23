@@ -15,8 +15,6 @@ This project is a decision-support engine for Bengaluru Traffic Police that:
 - Predicts road-closure likelihood and expected clearance time
 - Recommends officers, barricades, diversions, and hold duration
 - Learns from every completed event through a post-event review loop
-
-   Built end-to-end on the ASTraM incident log.
 ---
 
 ## Live Demo
