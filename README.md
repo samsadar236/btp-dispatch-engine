@@ -3,7 +3,7 @@
 
 ### Bengaluru Traffic Police — Flipkart GRiD Round 2
 
-> **Problem Statement**
+> **Problem Statement:**
 > How can historical and real-time data be used to forecast event-related traffic impact and recommend optimal manpower, barricading, and diversion plans?
 
 ---
