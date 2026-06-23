@@ -1,4 +1,4 @@
-# 🚦 Event-Impact & Resource Recommendation Engine
+# 🚦Event-Impact & Resource Recommendation Engine
 
 ### Bengaluru Traffic Police — Flipkart GRiD Round 2
 
