@@ -149,7 +149,71 @@ btp-dispatch-engine/
 ---
 
 ## ▶️ Run it
+## 🚀 Run It
 
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Launch the Dashboard
+
+```bash
+streamlit run app.py
+```
+
+Once the application starts, open the provided local URL in your browser.
+
+### Explore the System
+
+The **🎯 Live Ops Dashboard** provides a complete view of the operational pipeline:
+
+```text
+Detect Event
+    ↓
+Forecast Impact
+    ↓
+Dispatch Resources
+    ↓
+Map Visualization
+    ↓
+Review & Learn
+```
+
+Using the dashboard, you can:
+
+- View upcoming events and predicted impact scores
+- Monitor live incidents and generated alerts
+- Inspect resource deployment recommendations
+- Visualize affected locations on the interactive map
+- Review operational logs and post-event analysis
+
+### Run Individual Agents
+
+#### Event Intelligence Agent
+
+```bash
+python agents/news_agent.py
+```
+
+Uses historical analogues to estimate the impact of upcoming events.
+
+#### Incident Response Agent
+
+```bash
+python agents/alert_agent.py
+```
+
+Evaluates live incidents and generates dispatch recommendations.
+
+### Verify Results
+
+```bash
+python verify_accuracy.py
+```
+
+This script recomputes evaluation metrics directly from project artifacts and verifies the reported performance metrics.
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
