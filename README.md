@@ -18,11 +18,25 @@ This project is a decision-support engine for Bengaluru Traffic Police that:
 
 Built end-to-end on the ASTraM incident log.
 
+### 🌐 Live Demo
+
+Experience the complete system through the deployed Streamlit dashboard, including event forecasting, dispatch recommendations, map visualization, and the Live Ops command center.
+
+**Link:** [Open Live Demo](https://btp-dispatch-engine-sam.streamlit.app/)
 ---
+### 🎥 Demo Video
 
+A walkthrough of the system architecture, forecasting pipeline, AI agents, dispatch engine, dashboard features, and key results.
 
-*Built by **Lock IN** — Samruddhi Sadar, IIT Guwahati*
+**Link:** [Watch Demo Video](YOUR_VIDEO_URL)
 
+---
+### 📄 Technical Report
+
+A detailed explanation of the methodology, data preparation, model development, calibration strategy, dispatch logic, evaluation methodology, and design decisions behind the system.
+
+**Link:** [Read Technical Report](YOUR_REPORT_LINK)
+---
 ## How this answers the problem statement
 
 The brief names three gaps. Here is where each is solved:
@@ -329,3 +343,7 @@ The raw ASTraM CSV ships in `data/`, so this regenerates every artifact from scr
 - **Deployment assumptions are explicit.** The system does not perform automatic dispatching or nearest-unit assignment, as those capabilities require live fleet telemetry not present in the dataset.
 
 - **All reported metrics are reproducible.** Running `verify_accuracy.py` recomputes the evaluation metrics directly from the generated artifacts.
+
+---
+*Built by **Lock IN** — Samruddhi Sadar, IIT Guwahati*
+---
