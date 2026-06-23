@@ -151,10 +151,6 @@ btp-dispatch-engine/
 ## ▶️ Run it
 
 
-```
-
-## ▶️ Run It
-
 ### Clone the repository
 
 ```bash
