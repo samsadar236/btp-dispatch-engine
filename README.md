@@ -27,7 +27,7 @@ This project is a decision-support engine for Bengaluru Traffic Police that:
 
 - **Live Demo:** https://btp-dispatch-engine-sam.streamlit.app/
 - **Demo Video:** YOUR_VIDEO_URL
-- **Technical Report:** [Technical_Report.pdf](Technical_Report.pdf)
+- **Technical Report:** [Technical_Report.pdf](Technical_Report.pdf) | [Google Drive](YOUR_DRIVE_LINK)
 ---
 ## How this answers the problem statement
 
