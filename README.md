@@ -17,7 +17,7 @@ This project is a decision-support engine for Bengaluru Traffic Police that:
 - Learns from every completed event through a post-event review loop
 ---
 
-## 🚀 Explore the Project
+## Explore the Project
 
 | Resource | Description |
 |-----------|-------------|
