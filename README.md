@@ -254,31 +254,6 @@ No metrics are hard-coded into the dashboard or README.
 
 ---
 
-### Rebuild the pipeline from scratch (optional)
-
-To regenerate every artifact in `data/`:
-
-```bash
-python engine/step0_clean.py
-python engine/f2_reference_table.py
-python engine/f3_buffer_final.py
-python engine/f4_closure_model.py
-python engine/f5_severity.py
-python engine/f6_dispatch.py
-python engine/f7_learning_loop.py
-python map/mappls_layer.py
-```
-
-Then run:
-
-```bash
-python verify_accuracy.py
-```
-
-to confirm the reproduced results.
-
----
-
 ## 🤖 The AI Agents — What They Do, and How They Work
 
 The system ships two agents that share the same core engine but serve different time horizons.
