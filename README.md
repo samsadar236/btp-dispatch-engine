@@ -149,90 +149,127 @@ btp-dispatch-engine/
 ---
 
 ## ▶️ Run it
-## 🚀 Run It
 
-### Install Dependencies
+
+```
+
+## ▶️ Run It
+
+### Clone the repository
+
+```bash
+git clone https://github.com/samsadar236/btp-dispatch-engine.git
+cd btp-dispatch-engine
+```
+
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Launch the Dashboard
+### Launch the command center
 
 ```bash
 streamlit run app.py
 ```
 
-Once the application starts, open the provided local URL in your browser.
+The dashboard opens locally in your browser.
 
-### Explore the System
+---
 
-The **🎯 Live Ops Dashboard** provides a complete view of the operational pipeline:
+### What to look at first
+
+Open the **🎯 Live Ops** tab.
+
+This is the entire operational workflow in one screen:
 
 ```text
 Detect Event
-    ↓
+      ↓
 Forecast Impact
-    ↓
+      ↓
 Dispatch Resources
-    ↓
+      ↓
 Map Visualization
-    ↓
+      ↓
 Review & Learn
 ```
 
-Using the dashboard, you can:
+You can:
 
-- View upcoming events and predicted impact scores
-- Monitor live incidents and generated alerts
-- Inspect resource deployment recommendations
-- Visualize affected locations on the interactive map
-- Review operational logs and post-event analysis
+- Scan upcoming events that have been pre-scored by the News Watch agent
+- Trigger live incidents through the Alert agent workflow
+- Inspect predicted closure probability, severity, and clearance estimates
+- Review generated deployment recommendations (officers, barricades, diversions, hold time)
+- Visualize dispatched events on the map
+- Watch reviewed incidents flow back into the learning loop
 
-### Run Individual Agents
+---
 
-#### Event Intelligence Agent
+### Run the agents directly
+
+The dashboard consumes the same engine used by the standalone agents.
+
+#### 📡 News Watch Agent
+
+Pre-scores upcoming events from historical analogues and generates deployment recommendations before the event occurs.
 
 ```bash
 python agents/news_agent.py
 ```
 
-Uses historical analogues to estimate the impact of upcoming events.
+#### 🚨 Alert Agent
 
-#### Incident Response Agent
+Scores a live incident through the calibrated closure model and emits an officer-facing dispatch recommendation.
 
 ```bash
 python agents/alert_agent.py
 ```
 
-Evaluates live incidents and generates dispatch recommendations.
+---
 
-### Verify Results
+### Verify every reported metric
+
+Every accuracy claim in this repository can be independently reproduced.
+
+```bash
+python verify_accuracy.py
+```
+
+The script rebuilds the evaluation metrics from the saved artifacts and prints:
+
+- Closure-model discrimination (AUC)
+- Calibration quality (ECE)
+- Conformal coverage
+- Duration-model error statistics
+
+No metrics are hard-coded into the dashboard or README.
+
+---
+
+### Rebuild the pipeline from scratch (optional)
+
+To regenerate every artifact in `data/`:
+
+```bash
+python engine/step0_clean.py
+python engine/f2_reference_table.py
+python engine/f3_buffer_final.py
+python engine/f4_closure_model.py
+python engine/f5_severity.py
+python engine/f6_dispatch.py
+python engine/f7_learning_loop.py
+python map/mappls_layer.py
+```
+
+Then run:
 
 ```bash
 python verify_accuracy.py
 ```
 
-This script recomputes evaluation metrics directly from project artifacts and verifies the reported performance metrics.
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-Open the **🎯 Live Ops** tab — that's the whole system in one screen: *detect → pre-score → dispatch → map → learn*. Scan upcoming events, fire live incidents, watch them populate the map and the review log.
-
-The two agents also run standalone in a terminal (they print officer-facing output):
-
-```bash
-python agents/news_agent.py     # pre-scores upcoming events from historical analogues
-python agents/alert_agent.py    # scores live incidents through the per-event model
-```
-
-Verify every accuracy claim yourself — recomputed live from the artifacts, nothing copy-pasted:
-
-```bash
-python verify_accuracy.py
-```
+to confirm the reproduced results.
 
 ---
 
