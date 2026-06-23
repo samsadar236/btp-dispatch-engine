@@ -1,4 +1,3 @@
-<img width="401" height="250" alt="image" src="https://github.com/user-attachments/assets/34896095-026b-4a69-b6e2-1e238194b0fe" />
 # 🚦 Event-Impact & Resource Recommendation Engine
 
 ### Bengaluru Traffic Police — Flipkart GRiD Round 2
