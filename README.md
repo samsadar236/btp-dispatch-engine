@@ -38,15 +38,15 @@ The brief names three gaps. Here is where each is solved:
 
 ---
 
-## The 60-second pitch
+## 🔍 Three Things Worth Knowing
 
-1. **Data beats intuition.** Low-priority events close roads **12.1%** of the time vs **5.9%** for High-priority. Operator-assigned priority tracks *dispatch urgency*, not *actual disruption* — so we model disruption directly instead of trusting the priority label.
-2. **Every uncertainty claim is proven, not asserted.** The P90 clearance buffer achieves **90.2% coverage on held-out data** (split-conformal); the closure model is calibrated to **ECE 0.0096**. Both are re-checkable any time by running `verify_accuracy.py`.
-3. **Intellectual honesty as a feature.** A gradient-boosted clearance model was built, tested, and **dropped** because it didn't beat a transparent per-type median (MedAE 31.4 vs 29.0 min). We kept the simpler, better, more explainable thing — and left the dropped model in the repo as evidence.
+1. **Data beats intuition.** Low-priority events close roads 12.1% of the time versus 5.9% for High-priority events. Operator-assigned priority reflects dispatch urgency, not actual disruption — so the system models disruption directly instead of relying on the priority label.
 
----
+2. **Every uncertainty claim is verified.** The P90 clearance buffer achieves 90.2% coverage on held-out data (split-conformal), while the closure model is calibrated to an ECE of 0.0096. Both can be independently reproduced using `verify_accuracy.py`.
 
-## ⭐ Architecture — star schema
+3. **Simplicity won.** A gradient-boosted clearance model was built, tested, and rejected because it underperformed a transparent per-type median baseline (MedAE 31.4 vs 29.0 minutes). The simpler model shipped, and the discarded model remains in the repository as evidence.
+
+## ⭐ Architecture 
 
 ![Architecture diagram](architecture.svg)
 
