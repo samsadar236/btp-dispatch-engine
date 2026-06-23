@@ -182,8 +182,6 @@ streamlit run app.py
 
 The dashboard opens locally in your browser.
 
----
-
 ### What to look at first
 
 Open the **🎯 Live Ops** tab.
@@ -211,7 +209,6 @@ You can:
 - Visualize dispatched events on the map
 - Watch reviewed incidents flow back into the learning loop
 
----
 
 ### Run the agents directly
 
@@ -232,8 +229,6 @@ Scores a live incident through the calibrated closure model and emits an officer
 ```bash
 python agents/alert_agent.py
 ```
-
----
 
 ### Verify every reported metric
 
