@@ -320,15 +320,10 @@ The raw ASTraM CSV ships in `data/`, so this regenerates every artifact from scr
 ## 🧾Modeling Decisions & Limitations
 
 - **Impact over congestion.** The ASTraM log does not contain traffic flow, speed, or volume measurements. The system therefore forecasts clearance time, closure probability, and severity rather than inventing unsupported congestion estimates.
-
 - **Timezone anomaly documented.** An IST-as-UTC timestamp artifact was identified during data cleaning and is explicitly documented rather than silently corrected.
-
 - **Precise rescue-event handling.** Records are excluded only when `status == closed` and `closed_datetime` is missing, avoiding blanket rejection of entire groups of rows.
-
 - **Evidence-based model selection.** A gradient-boosted duration model was developed and evaluated but did not outperform a transparent median-based baseline. The simpler model was therefore retained.
-
 - **Long-tail event types handled conservatively.** Rare categories (e.g., `pot_holes`) are treated as review candidates rather than trusted duration estimates due to strong ticket-lifecycle effects.
-
 - **Corridor analysis presented as exploratory.** Corridor-level differences are reported as directional signals, not statistically significant findings.
 
 - **Deployment assumptions are explicit.** The system does not perform automatic dispatching or nearest-unit assignment, as those capabilities require live fleet telemetry not present in the dataset.
