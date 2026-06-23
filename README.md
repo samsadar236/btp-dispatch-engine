@@ -22,7 +22,7 @@ This project is a decision-support engine for Bengaluru Traffic Police that:
 | Resource | Description |
 |-----------|-------------|
 | [LIVE DEMO](https://btp-dispatch-engine-sam.streamlit.app/) | Interactive dashboard with forecasting, dispatch recommendations, map visualization, and learning workflows. |
-| [DEMO VIDEO](https://drive.google.com/file/d/1q_LZ8K7uWSphxxnBHIiVT_lgM8YVPTfS/view?usp=sharing) | End-to-end walkthrough of the system, architecture, and key features. |
+| [DEMO VIDEO](https://drive.google.com/file/d/1oRs7RO8ZTgErhHsWg-utapIaTV2Uppkp/view?usp=drive_link) | End-to-end walkthrough of the system, architecture, and key features. |
 | [TECHNICAL REPORT](Technical_Report.pdf) / [Google Drive Link](https://drive.google.com/file/d/1q_LZ8K7uWSphxxnBHIiVT_lgM8YVPTfS/view?usp=sharing)  | Detailed methodology, modeling decisions, evaluation results, and implementation details. |
 
 
