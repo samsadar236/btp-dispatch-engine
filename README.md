@@ -1,17 +1,4 @@
-# 🚦 Event-Impact & Resource Recommendation Engine
-### Bengaluru Traffic Police — Flipkart GRiD Round 2
 
-> **Problem:** *"How can historical and real-time data be used to forecast event-related traffic impact and recommend optimal manpower, barricading, and diversion plans?"*
-
-A decision-support system that **forecasts the operational impact** of a traffic event (planned or unplanned), **recommends concrete resources** (officers, barricades, diversions), and **learns from every event** afterward — built end-to-end on the ASTraM incident log.
-
-This targets event-driven congestion exactly as scoped by the brief — by forecasting the **impact that drives it**: clearance time, road-closure probability, and severity. The ASTraM log is an incident record (event type, location, duration, closure flag) with no traffic volume, speed, or flow data in it, so a number like "congestion will rise 20%" can't be backed by anything in the dataset — it would be invented. What the data *can* support, and what this system forecasts with proven uncertainty, is exactly what the brief's own Problem Statement Direction asks for: *"forecast event-related traffic impact and recommend optimal manpower, barricading, and diversion plans."*
-
-> **What this means for a dispatcher.** At the barricade operating point, the engine pre-positions units for **8% of events** and catches **~50% of all actual road closures** before the road is shut (at ~52% precision). A **VIP movement anywhere in Bengaluru auto-triggers a barricade recommendation** — its 80% historical closure rate sets a floor the per-event model can never override. The operator never reads a probability; they read an order: *"🔴 URGENT — Deploy 3 officers, erect barricade, hold ~1.5h."*
-
-*Built by **Lock IN** — Samruddhi Sadar, Indian Institute of Technology Guwahati.*
-
----
 # 🚦 Event-Impact & Resource Recommendation Engine
 
 ### Bengaluru Traffic Police — Flipkart GRiD Round 2
@@ -55,27 +42,6 @@ These are the same signals required to recommend manpower, barricading, and dive
 
 ---
 
-## Example output
-
-Instead of showing operators a probability score, the system produces an actionable recommendation:
-
-```text
-🔴 URGENT
-Deploy: 3 officers
-Barricade: YES
-Diversion: Recommended
-Expected hold time: ~1.5 hours
-```
-
-At the selected barricade operating point:
-
-- Only ~8% of events trigger deployment
-- ~50% of all actual road closures are identified before they occur
-- Precision is ~52%
-
-VIP movements automatically trigger barricade recommendations because their historical closure rate (~80%) exceeds the deployment threshold.
-
----
 
 *Built by **Lock IN** — Samruddhi Sadar, IIT Guwahati*
 
